@@ -1,0 +1,57 @@
+.features {
+	padding-top: 60px;
+
+	@include desktop {
+		padding-top: 94px;
+	}
+}
+
+.benefits {
+	@include tablet {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+	}
+}
+
+.benefits__item {
+	@include tablet {
+		flex-basis: calc((100% - 30px) / 2);
+	}
+
+	@include desktop {
+		flex-basis: calc((100% - 90px) / 4);
+	}
+}
+
+.benefits__wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 120px;
+	margin-bottom: 30px;
+
+	background-color: var(--team-gb-color);
+	border-radius: 4px;
+}
+
+.benefits__title {
+	margin-bottom: 10px;
+
+	font-weight: 700;
+	line-height: calc(16 / 14);
+	text-transform: uppercase;
+
+	@include tablet-close {
+		text-align: center;
+	}
+}
+
+.benefits__text {
+	line-height: 1.71;
+	color: var(--main-text-color);
+
+	@include tablet-close {
+		margin-bottom: 30px;
+	}
+}

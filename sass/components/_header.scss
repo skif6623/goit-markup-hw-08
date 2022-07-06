@@ -1,0 +1,318 @@
+.header {
+	position: relative;
+	border-bottom: 1px solid var(--header-border);
+
+	.container {
+		display: flex;
+		align-items: center;
+
+		@include tablet-close {
+			justify-content: space-between;
+		}
+
+		@include desktop {
+			align-items: center;
+		}
+	}
+
+	&-wrap {
+		@include tablet-close {
+			display: none;
+		}
+
+		@include tablet {
+			display: flex;
+			width: 100%;
+		}
+	}
+}
+
+.menu-button {
+	background-color: transparent;
+	border: none;
+
+	@include tablet {
+		display: none;
+	}
+
+	&:hover .menu-button__icon {
+		fill: var(--accent-color);
+	}
+}
+
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+
+	width: 100vw;
+	height: 100vh;
+
+	background: var(--bg-header-color);
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+	overflow-y: auto;
+}
+
+.mobile-container {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	margin: 0 auto;
+	padding: 48px 40px;
+
+	@media screen and (min-width: 480px) {
+		width: 480px;
+	}
+}
+
+.menu-button--close {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+
+	display: flex;
+	padding: 0;
+}
+
+.navigation {
+	@include tablet {
+		margin-left: 88px;
+	}
+
+	@include desktop {
+		margin-left: 93px;
+	}
+}
+
+.navigation__list {
+	display: flex;
+
+
+	@include tablet-close {
+		flex-direction: column;
+	}
+}
+
+.navigation__item {
+	@include tablet-close {
+		margin-bottom: 32px;
+	}
+}
+
+.navigation__item+.navigation__item {
+	@include tablet {
+		margin-left: 50px;
+	}
+}
+
+.navigation__link {
+	position: relative;
+	display: block;
+
+	font-weight: 500;
+	font-size: 40px;
+	line-height: calc(47 / 40);
+	letter-spacing: 0.02em;
+	color: inherit;
+
+	transition: var(--color-transition);
+
+	&:hover,
+	&:focus {
+		color: var(--accent-color);
+	}
+
+	@include tablet {
+
+		padding-top: 32px;
+		padding-bottom: 32px;
+
+		font-size: inherit;
+
+		line-height: 1.14;
+	}
+}
+
+.navigation__link::before {
+	@include tablet {
+		content: "";
+
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+		display: block;
+		width: 100%;
+		height: 4px;
+
+		background: var(--accent-color);
+		border-radius: 2px;
+		opacity: 0;
+
+		transform: translateY(1px);
+		transition: opacity 250ms var(--cubic);
+	}
+}
+
+.navigation__link:hover::before,
+.navigation__link:focus::before {
+	@include tablet {
+		opacity: 1;
+	}
+}
+
+.current {
+	position: relative;
+
+	color: var(--accent-color);
+
+	&::after {
+		@include tablet {
+			content: "";
+
+			position: absolute;
+			left: 0;
+			bottom: 0;
+
+			display: block;
+			width: 100%;
+			height: 4px;
+
+			background: var(--accent-color);
+			border-radius: 2px;
+
+			transform: translateY(1px);
+		}
+	}
+}
+
+.contacts {
+	display: flex;
+
+	@include desktop-close {
+		flex-direction: column;
+	}
+
+	@include tablet {
+		justify-content: center;
+		margin-left: auto;
+
+	}
+
+	@include desktop {
+		align-items: center;
+	}
+}
+
+.contacts__item {
+	@include tablet-close {
+		margin-bottom: 32px;
+	}
+
+	&:last-child {
+		@include tablet-close {
+			margin-bottom: 60px;
+		}
+	}
+
+	&+& {
+		@include tablet {
+			margin-top: 10px;
+		}
+
+		@include desktop {
+			margin-left: 50px;
+			margin-top: 0;
+		}
+	}
+}
+
+.contacts__link {
+	display: block;
+
+	font-weight: 500;
+	font-size: 26px;
+	line-height: calc(40/34);
+	letter-spacing: 0.02em;
+
+	color: var(--accent-color);
+
+	@include mobile {
+		font-size: 34px;
+	}
+
+	@include tablet {
+		display: flex;
+		align-items: center;
+		font-size: 12px;
+		line-height: calc(14 / 12);
+
+		color: var(--main-text-color);
+	}
+
+	@include desktop {
+		font-size: 14px;
+		line-height: calc(16 /14);
+	}
+
+	&:hover,
+	&:focus {
+		color: var(--accent-color);
+	}
+}
+
+.contacts__mail {
+	margin-right: 10px;
+
+	fill: currentColor;
+}
+
+.contacts__phone {
+	margin-right: 10px;
+
+	fill: currentColor;
+}
+
+.contacts__link--grey {
+	@include tablet-close {
+		font-size: 24px;
+		line-height: calc(28 / 24);
+
+		color: var(--main-text-color);
+	}
+}
+
+.contacts-soc {
+	display: flex;
+	justify-content: start;
+}
+
+.contacts-soc__item {
+	border-right: 1px solid rgba(33, 33, 33, 0.2);
+	padding: 0 10px;
+
+	&:last-child {
+		border-right: none;
+	}
+
+	&:first-child {
+		padding-left: 0;
+	}
+}
+
+.contacts-soc__link {
+	font-weight: 500;
+	font-size: 12px;
+	line-height: calc(22 / 18);
+	letter-spacing: 0.02em;
+	color: var(--accent-color);
+
+	@include mobile {
+		font-size: 18px;
+	}
+}

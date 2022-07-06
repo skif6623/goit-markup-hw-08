@@ -1,0 +1,88 @@
+.filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @include tablet-close {
+    justify-content: flex-start;
+  }
+}
+
+.projects__filter {
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 30px;
+  }
+
+  @include desktop {
+    margin-bottom: 50px;
+  }
+}
+
+.filter__item:not(:last-child) {
+  margin-right: 8px;
+
+  @include tablet-close {
+    margin-bottom: 15px;
+  }
+}
+
+.filter__item:nth-child(4) {
+  margin-bottom: 0;
+}
+
+.filter__btn {
+  padding: 6px 22px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: center;
+  letter-spacing: inherit;
+  color: inherit;
+
+  background-color: var(--team-gb-color);
+  border-radius: 4px;
+  border: none;
+
+  transition: var(--color-transition), var(--bg-transition), box-shadow 250ms var(--cubic);
+
+  &:hover,
+  &:focus {
+    color: var(--bg-header-color);
+
+    background-color: var(--accent-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.project {
+  width: 100%;
+}
+
+.projects {
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+.projects__item {
+  width: 100%;
+  border: 1px solid var(--table-border);
+
+  @include tablet-close {
+    margin-bottom: 30px;
+  }
+
+  @include tablet {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+
+  @include desktop {
+    flex-basis: calc((100% - 60px) / 3);
+  }
+}
